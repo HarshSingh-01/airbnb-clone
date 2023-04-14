@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  app:
+   build:
+    context: .
+   image: airbnb:v1
+   container_name: airbnb_container
+   volumes:
+     - .:/home/airbnb
+   ports:
+     - 3000:3000
+   command: npm run dev
