@@ -12,13 +12,13 @@ import {
   useForm
 } from "react-hook-form";
 
-import  useLoginModal  from "../hooks/useLoginModal";
+import useLoginModal from "../hooks/useLoginModal";
 import useRegisterModal from "../hooks/useRegisterModal";
 
 import Modal from "./Modal";
 import Input from "../inputs/Input";
 import Heading from "../Heading";
-import { Button } from "../Button";
+import Button from "../Button";
 
 const RegisterModal= () => {
   const registerModal = useRegisterModal();
@@ -70,7 +70,6 @@ const RegisterModal= () => {
       <Input
         id="email"
         label="Email"
-        type="email"
         disabled={isLoading}
         register={register}
         errors={errors}
