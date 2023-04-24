@@ -1,4 +1,4 @@
-import { SafeListing, SafeUser } from "@/app/types/input";
+import { SafeListing, SafeUser } from "@/app/types";
 
 import Heading from "@/app/components/Heading";
 import Container from "@/app/components/Container";

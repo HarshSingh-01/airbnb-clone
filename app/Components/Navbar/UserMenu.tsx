@@ -9,18 +9,22 @@ import useRegisterModal from '../../hooks/useRegisterModal';
 import useLoginModal from '../../hooks/useLoginModal';
 import useRentModal from '../../hooks/useRentModal';
 
-import { User } from '@prisma/client';
+import { SafeUser } from '@/app/types';
 import { signOut } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 
 
 interface UserMenuProps {
-    currentUser?: User | null;
+    currentUser?: SafeUser | null;
 }
 
-export const Usermenu: React.FC<UserMenuProps> = ({
+const UserMenu: React.FC<UserMenuProps> = ({
     currentUser
 }) => {
+
+    const router = useRouter();
+
     const [isOpen, setIsOpen] = useState(false);
     const toggleOpen = useCallback(() => {
         setIsOpen((value) => !value);
@@ -89,17 +93,17 @@ export const Usermenu: React.FC<UserMenuProps> = ({
                     <div className='flex flex-col cursor-pointer'>
                         {currentUser ? (<>
                             <MenuItem
-                                onClick={()=> {}}
+                                onClick={()=> router.push('/trips')}
                                 label='My trips' />  
                             <MenuItem
-                                onClick={()=>{}}
+                                onClick={()=>router.push('/favorites')}
                                 label='My favourites' />
                             
                             <MenuItem
-                                onClick={()=> {}}
+                                onClick={()=> router.push('/reservations')}
                                 label='My reservations' />  
                             <MenuItem
-                                onClick={()=>{}}
+                                onClick={()=> router.push('/properties')}
                                 label='My properties' />
                             <MenuItem
                                 onClick={rentModal.onOpen}
@@ -128,3 +132,5 @@ export const Usermenu: React.FC<UserMenuProps> = ({
         </div>
   )
 }
+
+export default UserMenu;

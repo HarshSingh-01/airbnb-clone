@@ -10,7 +10,7 @@ import {
     SafeListing,
     SafeReservation,
     SafeUser
-} from "@/app/types/input";
+} from "@/app/types";
 
 import HeartButton from "../HeartButton"; 
 import ClientOnly from "../ClientOnly";
